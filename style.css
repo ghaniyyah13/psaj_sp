@@ -16,7 +16,7 @@ body {
 }
 
 /* Helper Class untuk Warna Latar Belakang */
-.bg-light { background-color: #f3e5f5; } /* Ungu sangat muda */
+.bg-light { background-color: #f3e5f5; } /* gambar cute bunga pink */
 .bg-white { background-color: #ffffff; }
 
 .container {
@@ -30,7 +30,7 @@ body {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: #6a1b9a; /* Ungu Gelap */
+    color: #6a1b9a; /* pink lucu */
     position: relative;
 }
 
@@ -212,4 +212,5 @@ footer {
 @media (max-width: 768px) {
     .nav-links { display: none; } /* Sembunyikan menu di HP (bisa ditambah tombol menu nanti) */
     .hero-overlay h1 { font-size: 2.5rem; }
+
 }
