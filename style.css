@@ -1,216 +1,170 @@
-/* =========================================
-   1. RESET & DASAR (GLOBAL STYLES)
-   ========================================= */
+/* --- PENGATURAN DASAR & VARIABEL --- */
+:root {
+    --primary-pink: #ff85a1;      /* Pink utama */
+    --soft-pink: #fbb1bd;         /* Pink lembut */
+    --glow-purple: #9b5de5;       /* Ungu bercahaya */
+    --dark-purple: #240046;       /* Ungu gelap untuk teks/footer */
+    --white-glass: rgba(255, 255, 255, 0.8); /* Efek kaca transparan */
+    --shadow: 0 8px 32px 0 rgba(155, 93, 229, 0.3); /* Bayangan ungu lembut */
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Memastikan padding tidak merusak ukuran elemen */
-    font-family: 'Poppins', sans-serif; /* Menggunakan font dari Google Fonts */
-    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
+    margin: 0;                    /* Menghapus jarak bawaan browser */
+    padding: 0;                   /* Menghapus padding bawaan browser */
+    box-sizing: border-box;       /* Menghitung padding dalam ukuran elemen */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font bersih modern */
 }
 
 body {
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
+    background-color: #fff0f3;    /* Warna latar belakang pink sangat muda */
+    color: #444;                  /* Warna teks umum */
+    line-height: 1.6;             /* Jarak antar baris teks agar enak dibaca */
 }
 
-/* Helper Class untuk Warna Latar Belakang */
-.bg-light { background-color: #f3e5f5; } /* gambar cute bunga pink */
-.bg-white { background-color: #ffffff; }
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 20px;
-}
-
-/* Judul Setiap Bagian */
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #6a1b9a; /* pink lucu */
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    width: 60px;
-    height: 4px;
-    background: #e91e63; /* Pink */
-    display: block;
-    margin: 10px auto;
-    border-radius: 2px;
-}
-
-/* =========================================
-   2. NAVIGASI (HEADER)
-   ========================================= */
-header {
-    background: #ffffff;
-    padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
+/* --- NAVIGASI --- */
 nav {
+    background: var(--white-glass); /* Warna latar transparan */
+    backdrop-filter: blur(10px);    /* Efek blur di belakang nav (glassmorphism) */
+    display: flex;                  /* Mengatur layout secara horizontal */
+    justify-content: space-between; /* Logo di kiri, menu di kanan */
+    align-items: center;            /* Menyelaraskan teks ke tengah secara vertikal */
+    padding: 20px 10%;              /* Jarak dalam navigasi */
+    position: sticky;               /* Navigasi tetap di atas saat di-scroll */
+    top: 0;
+    z-index: 1000;                  /* Memastikan nav selalu di lapisan paling atas */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--glow-purple);      /* Warna logo ungu bercahaya */
+}
+
+nav ul {
+    display: flex;                  /* Menu berjejer ke samping */
+    list-style: none;               /* Menghilangkan tanda titik list */
+}
+
+nav ul li {
+    margin-left: 20px;              /* Jarak antar menu */
+}
+
+nav ul li a {
+    text-decoration: none;          /* Menghilangkan garis bawah link */
+    color: var(--dark-purple);
+    font-weight: 500;
+    transition: 0.3s;               /* Animasi saat kursor mendekat */
+}
+
+nav ul li a:hover {
+    color: var(--primary-pink);     /* Berubah pink saat hover */
+}
+
+/* --- HERO SECTION (BERANDA) --- */
+.hero {
+    height: 90vh;                   /* Tinggi 90% dari layar */
+    background: linear-gradient(135deg, var(--soft-pink), var(--glow-purple)); /* Gradasi pink ke ungu */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;         /* Menyusun konten ke bawah */
+    justify-content: center;
     align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
+    text-align: center;
+    color: white;
     padding: 0 20px;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #6a1b9a;
-}
-
-.logo span {
-    color: #e91e63; /* Pink untuk penekanan logo */
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 25px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: #e91e63; /* Berubah jadi pink saat hover */
-}
-
-/* =========================================
-   3. HERO SECTION (BERANDA)
-   ========================================= */
-.hero-kelompok {
-    height: 90vh;
-    background: linear-gradient(rgba(106, 27, 154, 0.7), rgba(233, 30, 99, 0.7)), 
-                url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-.hero-overlay h1 {
-    font-size: 4rem;
+.hero h1 {
+    font-size: 3.5rem;              /* Ukuran teks besar */
     margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.2); /* Bayangan teks */
 }
 
-.btn-cek {
-    background: #e91e63;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-    display: inline-block;
+/* --- SECTION UMUM --- */
+section {
+    padding: 80px 10%;              /* Jarak antar bagian website */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--glow-purple);
+    position: relative;
+}
+
+h2::after {                         /* Garis dekorasi di bawah judul */
+    content: '';
+    width: 50px;
+    height: 4px;
+    background: var(--primary-pink);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- KARTU ANGGOTA & KONTEN SEJAJAR --- */
+.container-cards {
+    display: flex;                  /* Membuat kartu berjajar */
+    flex-wrap: wrap;                /* Otomatis turun jika layar sempit */
+    gap: 20px;                      /* Jarak antar kartu */
+    justify-content: center;        /* Posisi kartu di tengah */
+}
+
+.card {
+    background: white;
+    border-radius: 20px;            /* Sudut membulat */
+    padding: 20px;
+    width: 300px;                   /* Lebar kartu tetap */
+    text-align: center;
+    box-shadow: var(--shadow);      /* Bayangan ungu lembut */
+    transition: transform 0.3s;     /* Animasi saat disentuh */
+    border: 1px solid rgba(155, 93, 229, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);   /* Kartu naik sedikit saat hover */
+}
+
+.card img {
+    width: 100%;                    /* Gambar memenuhi lebar kartu */
+    border-radius: 15px;            /* Sudut gambar membulat */
+    margin-bottom: 15px;
+}
+
+/* --- DOKUMENTASI VIDEO --- */
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;                 /* Video di posisi tengah */
+    border-radius: 20px;
+    overflow: hidden;               /* Sudut video mengikuti border-radius */
+    box-shadow: var(--shadow);
+}
+
+iframe {
+    width: 100%;                    /* Video memenuhi container */
+    aspect-ratio: 16 / 9;           /* Perbandingan layar video */
     border: none;
 }
 
-.btn-cek:hover {
-    background: #c2185b;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
-}
-
-/* =========================================
-   4. ANGGOTA KELOMPOK (CARDS)
-   ========================================= */
-.kelompok-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsif otomatis */
-    gap: 20px;
-}
-
-.kelompok-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    transition: 0.4s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    text-align: center;
-}
-
-.kelompok-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(106, 27, 154, 0.2);
-}
-
-.card-img img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover; /* Agar gambar tidak gepeng */
-}
-
-.card-info {
-    padding: 20px;
-}
-
-.card-info h3 {
-    font-size: 1.1rem;
-    color: #6a1b9a;
-}
-
-.card-info p {
-    color: #e91e63;
-    font-weight: bold;
-}
-
-/* =========================================
-   5. MAKALAH & VIDEO (CONTAINERS)
-   ========================================= */
-.pdf-container, .video-container {
-    width: 100%;
-    height: 500px; /* Tinggi box PDF/Video */
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-}
-
-.content-wrapper, .video-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* =========================================
-   6. FOOTER
-   ========================================= */
+/* --- FOOTER --- */
 footer {
-    background: #4a148c; /* Ungu gelap */
+    background: var(--dark-purple); /* Warna gelap profesional */
     color: white;
     text-align: center;
-    padding: 30px 0;
+    padding: 40px 0;
     margin-top: 50px;
 }
 
-/* RESPONSIVE: Layar Kecil (HP) */
+/* --- RESPONSIVE (Tampilan Mobile) --- */
 @media (max-width: 768px) {
-    .nav-links { display: none; } /* Sembunyikan menu di HP (bisa ditambah tombol menu nanti) */
-    .hero-overlay h1 { font-size: 2.5rem; }
-
+    nav {
+        flex-direction: column;     /* Navigasi jadi tumpuk di HP */
+    }
+    nav ul {
+        margin-top: 20px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;          /* Perkecil teks hero di HP */
+    }
 }
