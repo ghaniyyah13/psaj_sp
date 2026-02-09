@@ -1,170 +1,73 @@
-/* --- PENGATURAN DASAR & VARIABEL --- */
+/* Import font lucu dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Fredoka:wght@300;500&display=swap');
+
+/* --- PENGATURAN VARIABEL WARNA --- */
 :root {
-    --primary-pink: #ff85a1;      /* Pink utama */
-    --soft-pink: #fbb1bd;         /* Pink lembut */
-    --glow-purple: #9b5de5;       /* Ungu bercahaya */
-    --dark-purple: #240046;       /* Ungu gelap untuk teks/footer */
-    --white-glass: rgba(255, 255, 255, 0.8); /* Efek kaca transparan */
-    --shadow: 0 8px 32px 0 rgba(155, 93, 229, 0.3); /* Bayangan ungu lembut */
+    --pink-pastel: #ffc2d1;      /* Warna dasar pink */
+    --deep-pink: #fb6f92;        /* Pink tua untuk aksen */
+    --soft-purple: #e2afff;      /* Ungu lembut bunga */
+    --white-cream: #fff5f8;      /* Putih krem kemerahan */
+    --cat-grey: #6d6d6d;         /* Warna teks gelap lembut */
 }
 
+/* --- RESET & GLOBAL STYLE --- */
 * {
-    margin: 0;                    /* Menghapus jarak bawaan browser */
-    padding: 0;                   /* Menghapus padding bawaan browser */
-    box-sizing: border-box;       /* Menghitung padding dalam ukuran elemen */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font bersih modern */
+    margin: 0;                   /* Hapus jarak bawaan */
+    padding: 0;                  /* Hapus ruang dalam bawaan */
+    box-sizing: border-box;      /* Ukuran elemen tetap konsisten */
+    cursor: url('https://img.icons8.com/color/24/null/sakura.png'), auto; /* Kursor bunga sakura */
 }
 
 body {
-    background-color: #fff0f3;    /* Warna latar belakang pink sangat muda */
-    color: #444;                  /* Warna teks umum */
-    line-height: 1.6;             /* Jarak antar baris teks agar enak dibaca */
+    background-color: var(--white-cream);
+    background-image: url('https://www.transparenttextures.com/patterns/flowers.png'); /* Pola bunga halus */
+    font-family: 'Fredoka', sans-serif; /* Font tubuh yang bulat dan imut */
+    color: var(--cat-grey);
+    overflow-x: hidden;          /* Mencegah scroll ke samping */
 }
 
-/* --- NAVIGASI --- */
+/* --- NAVIGASI IMUT --- */
 nav {
-    background: var(--white-glass); /* Warna latar transparan */
-    backdrop-filter: blur(10px);    /* Efek blur di belakang nav (glassmorphism) */
-    display: flex;                  /* Mengatur layout secara horizontal */
-    justify-content: space-between; /* Logo di kiri, menu di kanan */
-    align-items: center;            /* Menyelaraskan teks ke tengah secara vertikal */
-    padding: 20px 10%;              /* Jarak dalam navigasi */
-    position: sticky;               /* Navigasi tetap di atas saat di-scroll */
-    top: 0;
-    z-index: 1000;                  /* Memastikan nav selalu di lapisan paling atas */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: white;           /* Latar navigasi putih bersih */
+    padding: 15px 5%;            /* Ruang dalam nav */
+    display: flex;               /* Menyusun menu berjejer */
+    justify-content: space-between; 
+    align-items: center;
+    border-bottom: 5px dotted var(--pink-pastel); /* Garis bawah titik-titik lucu */
 }
 
 nav .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--glow-purple);      /* Warna logo ungu bercahaya */
+    font-family: 'Cherry Bomb One', cursive; /* Font khusus logo */
+    font-size: 28px;
+    color: var(--deep-pink);
+    text-shadow: 2px 2px var(--soft-purple); /* Bayangan ungu pada teks */
 }
 
 nav ul {
-    display: flex;                  /* Menu berjejer ke samping */
-    list-style: none;               /* Menghilangkan tanda titik list */
+    display: flex;
+    list-style: none;            /* Hilangkan tanda list */
 }
 
-nav ul li {
-    margin-left: 20px;              /* Jarak antar menu */
-}
+nav ul li { margin: 0 15px; }
 
 nav ul li a {
-    text-decoration: none;          /* Menghilangkan garis bawah link */
-    color: var(--dark-purple);
+    text-decoration: none;
+    color: var(--deep-pink);
     font-weight: 500;
-    transition: 0.3s;               /* Animasi saat kursor mendekat */
+    transition: 0.3s;            /* Efek halus saat disentuh kursor */
 }
 
 nav ul li a:hover {
-    color: var(--primary-pink);     /* Berubah pink saat hover */
+    transform: scale(1.2) rotate(5deg); /* Membesar dan miring saat hover */
+    display: inline-block;
+    color: var(--soft-purple);
 }
 
-/* --- HERO SECTION (BERANDA) --- */
+/* --- HERO (BERANDA) DENGAN BUNGA & KUCING --- */
 .hero {
-    height: 90vh;                   /* Tinggi 90% dari layar */
-    background: linear-gradient(135deg, var(--soft-pink), var(--glow-purple)); /* Gradasi pink ke ungu */
+    height: 80vh;
+    background: linear-gradient(rgba(255,194,209,0.5), rgba(226,175,255,0.5)), 
+                url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=1000'); /* Gambar kucing imut */
+    background-size: cover;      /* Gambar memenuhi layar */
+    background-position: center;
     display: flex;
-    flex-direction: column;         /* Menyusun konten ke bawah */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-}
-
-.hero h1 {
-    font-size: 3.5rem;              /* Ukuran teks besar */
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.2); /* Bayangan teks */
-}
-
-/* --- SECTION UMUM --- */
-section {
-    padding: 80px 10%;              /* Jarak antar bagian website */
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: var(--glow-purple);
-    position: relative;
-}
-
-h2::after {                         /* Garis dekorasi di bawah judul */
-    content: '';
-    width: 50px;
-    height: 4px;
-    background: var(--primary-pink);
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* --- KARTU ANGGOTA & KONTEN SEJAJAR --- */
-.container-cards {
-    display: flex;                  /* Membuat kartu berjajar */
-    flex-wrap: wrap;                /* Otomatis turun jika layar sempit */
-    gap: 20px;                      /* Jarak antar kartu */
-    justify-content: center;        /* Posisi kartu di tengah */
-}
-
-.card {
-    background: white;
-    border-radius: 20px;            /* Sudut membulat */
-    padding: 20px;
-    width: 300px;                   /* Lebar kartu tetap */
-    text-align: center;
-    box-shadow: var(--shadow);      /* Bayangan ungu lembut */
-    transition: transform 0.3s;     /* Animasi saat disentuh */
-    border: 1px solid rgba(155, 93, 229, 0.1);
-}
-
-.card:hover {
-    transform: translateY(-10px);   /* Kartu naik sedikit saat hover */
-}
-
-.card img {
-    width: 100%;                    /* Gambar memenuhi lebar kartu */
-    border-radius: 15px;            /* Sudut gambar membulat */
-    margin-bottom: 15px;
-}
-
-/* --- DOKUMENTASI VIDEO --- */
-.video-container {
-    max-width: 800px;
-    margin: 0 auto;                 /* Video di posisi tengah */
-    border-radius: 20px;
-    overflow: hidden;               /* Sudut video mengikuti border-radius */
-    box-shadow: var(--shadow);
-}
-
-iframe {
-    width: 100%;                    /* Video memenuhi container */
-    aspect-ratio: 16 / 9;           /* Perbandingan layar video */
-    border: none;
-}
-
-/* --- FOOTER --- */
-footer {
-    background: var(--dark-purple); /* Warna gelap profesional */
-    color: white;
-    text-align: center;
-    padding: 40px 0;
-    margin-top: 50px;
-}
-
-/* --- RESPONSIVE (Tampilan Mobile) --- */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;     /* Navigasi jadi tumpuk di HP */
-    }
-    nav ul {
-        margin-top: 20px;
-    }
-    .hero h1 {
-        font-size: 2.5rem;          /* Perkecil teks hero di HP */
-    }
-}
